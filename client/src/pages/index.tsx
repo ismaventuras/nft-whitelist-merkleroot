@@ -1,15 +1,8 @@
 import Head from "next/head";
 import { accounts } from "@/config";
-import Profile from "./components/Profile";
-import Validate from "./components/Validate";
-import MerkleTree from "merkletreejs";
-import { ethers } from "ethers";
-const { keccak256 } = ethers.utils;
-
-function generateTree(addressList: string[]) {
-  const leafNodes = addressList.map((addr) => keccak256(addr));
-  return new MerkleTree(leafNodes, keccak256, { sort: true });
-};
+import Profile from "@/components/Profile";
+import Validate from "@/components/Validate";
+import { generateTree } from "@/utils/merkle";
 
 export default function Home() {
   const tree = generateTree(accounts);

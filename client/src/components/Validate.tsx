@@ -1,7 +1,7 @@
 import type MerkleTree from "merkletreejs";
 import { useAccount } from "wagmi";
-import { getProof } from "../utils/merkle";
-import Claim from "./Claim";
+import { getProof } from "@/utils/merkle";
+import Claim from "@/components/Claim";
 
 export default function Validate({ tree }: { tree: MerkleTree }) {
   const { address, isConnected } = useAccount();
